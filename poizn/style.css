@@ -5,10 +5,91 @@
     font-style: normal;
 }
 
+/* ══════════════════════════════════════
+   BACKGROUND — gothic webcore / liminal
+   ══════════════════════════════════════ */
+
+html,
+body {
+    background: #030303;
+}
+
+/* CRT scanlines */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 16;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.22) 2px,
+        rgba(0, 0, 0, 0.22) 4px
+    );
+    opacity: 0.45;
+}
+
+/* film grain */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 15;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    opacity: 0.6;
+    animation: grainShift 8s steps(10) infinite;
+}
+
+#vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 16;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 30%,
+        rgba(0, 0, 0, 0.6) 65%,
+        rgba(0, 0, 0, 0.95) 100%
+    );
+}
+
+#liminalFog {
+    position: fixed;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(60, 10, 40, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(30, 0, 50, 0.25) 0%, transparent 45%);
+}
+
+#bgTint {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: rgba(20, 0, 30, 0.35);
+    mix-blend-mode: multiply;
+}
+
+@keyframes grainShift {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-2%, -1%); }
+    30% { transform: translate(1%, 2%); }
+    50% { transform: translate(-1%, 1%); }
+    70% { transform: translate(2%, -2%); }
+    90% { transform: translate(-1%, -1%); }
+}
+
+/* ══════════════════════════════════════
+   ORIGINAL UI (unchanged)
+   ══════════════════════════════════════ */
 
 body {
   user-select: none;
-  background: black;
   margin: 0;
   height: 100vh;
   overflow-x: hidden;
@@ -19,7 +100,6 @@ body {
   cursor: default;
 }
 
-/* BACKGROUND VIDEO */
 .background {
   position: fixed;
   top: 0;
@@ -27,14 +107,13 @@ body {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
-  z-index: -5;
+  z-index: 1;
   pointer-events: none;
   opacity: 0.5;
-  filter: blur(10px);
+  filter: blur(10px) grayscale(50%) contrast(1.15) brightness(0.45) saturate(0.5);
   transition: opacity 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
-/* CLICK TO START OVERLAY */
 .click-overlay {
   position: fixed;
   top: 0;
@@ -52,7 +131,6 @@ body {
   user-select: none;
 }
 
-/* MAIN CONTAINER */
 .container {
   position: fixed;
   display: flex;
@@ -69,7 +147,7 @@ body {
   gap: 0.5rem;
   padding: 1rem;
   overflow: hidden;
-  z-index: 0;
+  z-index: 5;
   opacity: 0;
   transition: opacity 1s ease-in-out;
   pointer-events: none;
@@ -80,7 +158,6 @@ body {
   pointer-events: auto;
 }
 
-/* BANNER */
 .banner {
   position: absolute;
   top: 0;
@@ -101,7 +178,6 @@ body {
   display: block;
 }
 
-/* PROFILE IMAGE */
 .profile {
   position: absolute;
   left: 50%;
@@ -118,7 +194,6 @@ body {
   display: block;
 }
 
-/* USERNAME */
 .username {
   position: absolute;
   left: 50.5%;
@@ -138,7 +213,6 @@ body {
   user-select: none;
 }
 
-/* SOCIALS */
 .socials {
   position: relative;
   display: flex;
@@ -149,14 +223,12 @@ body {
   z-index: 2;
 }
 
-/* SOCIAL BUTTON */
 .social-btn {
   position: relative;
   display: inline-block;
   cursor: pointer;
 }
 
-/* ICON */
 .social-btn img {
   width: clamp(30px, 4vw, 50px);
   height: auto;
@@ -165,12 +237,10 @@ body {
   transition: transform 0.2s ease-in-out;
 }
 
-/* ICON HOVER */
 .social-btn:hover img {
   transform: scale(1.1);
 }
 
-/* TOOLTIP */
 .social-btn::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -188,13 +258,11 @@ body {
   transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
 }
 
-/* TOOLTIP HOVER */
 .social-btn:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(-4px);
 }
 
-/* MUTE BUTTON */
 .mute-btn {
   position: fixed;
   top: 20px;

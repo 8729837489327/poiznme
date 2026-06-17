@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>poizn.me</title>
-<link rel="stylesheet" href="style.css">
-</head>
+    <head>
+        <!-- discord link stf -->
+         <meta property="og:title" content="poizn.me">
+         <meta property="og:url" content="https://poizn.me">
+         <meta name="theme-color" content="#a85868">
+         <!-- rest of stuff -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>poizn.me</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body>
+        <div class="corner corner-tl">void</div>
+        <div class="corner corner-tr">◈</div>
+        <div class="corner corner-bl">underground</div>
+        <div class="corner corner-br">◈</div>
 
-<body>
+        <div id="enterScreen"></div>
 
-<div class="corner corner-tl">void</div>
-<div class="corner corner-tr">◈</div>
-<div class="corner corner-bl">underground</div>
-<div class="corner corner-br">◈</div>
+        <div id="brandAnchor">
+            <span class="cross">✝</span>
+            <h1 id="siteName">poizn.me</h1>
+            <button id="enterBtn">enter</button>
+        </div>
+        
+        <div id="videoContainer">
+            <img id="bgGif" src="another_flower_petals.gif" alt="">
+        </div>
 
-<div id="enterScreen"></div>
+        <div id="vignette"></div>
 
-<div id="brandAnchor">
-    <span class="cross">✝</span>
-    <h1 id="siteName">poizn.me</h1>
-    <button id="enterBtn">enter</button>
-</div>
+        <audio id="bgMusic" src="purity1.mp3" loop preload="auto"></audio>
 
-<div id="videoContainer">
-    <img id="bgGif" src="another_flower_petals.gif" alt="">
-</div>
-
-<div id="vignette"></div>
-
-<audio id="bgMusic" src="purity1.mp3" loop preload="auto"></audio>
-
-<script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>

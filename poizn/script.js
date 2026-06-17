@@ -29,6 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   muteBtn.addEventListener("click", () => {
     music.muted = !music.muted;
-    muteBtn.textContent = music.muted ? "🔇" : "🔊";
+    muteBtn.textContent = music.muted ? "♪" : "♫";
   });
 });
