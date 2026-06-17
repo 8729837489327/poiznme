@@ -196,11 +196,11 @@ body {
 
 .username {
   position: absolute;
-  left: 50.5%;
-  top: 60%;
+  left: 51.5%; /* default: 50 */
+  top: 50%; /* default: 60 */
   transform: translate(-50%, -50%);
-  color: rgb(255, 184, 223);
-  font-size: clamp(16px, 2vw, 32px);
+  color: rgb(0, 0, 0); /* default: (255, 184, 223) */
+  font-size: clamp(2rem, 4vw, 5rem);
   font-weight: bold;
   font-family: "GothicWar", serif;
   white-space: nowrap;
@@ -216,10 +216,10 @@ body {
 .socials {
   position: relative;
   display: flex;
-  gap: 20px;
+  gap: clamp(1rem, 2vw, 2rem);
   justify-content: center;
   align-items: center;
-  margin-top: 44%;
+  margin-top: 40%;
   z-index: 2;
 }
 

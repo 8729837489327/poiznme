@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>poizn.me</title>
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+  <!-- Click overlay -->
+  <div class="click-overlay" id="clickOverlay">[ Click ]</div>
+
+  <!-- Background video -->
+  <video id="background" playsinline loop muted class="background" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
+    <source src="https://files.catbox.moe/ww0h2e.mp4" type="video/webm">
+  </video>
+
+  <div id="bgTint"></div>
+  <div id="liminalFog"></div>
+  <div id="vignette"></div>
+
+  <!-- Background audio -->
+  <audio id="background-music" loop>
+    <source src="" type="audio/mpeg">
+  </audio>
+
+  <!-- Mute button -->
+  <button id="mute-btn" class="mute-btn">♫</button>
+
+  <!-- Linktree container -->
+  <div class="container" id="container">
+
+    <div class="profile">
+      <img src="https://files.catbox.moe/z9jo8x.gif" onerror="this.parentElement.style.display='none'">
+    </div>
+
+    <div class="username">poizn</div>
+
+    <div class="banner">
+      <img src="" onerror="this.parentElement.style.display='none'">
+    </div>
+
+    <div class="socials">
+      <div class="social-btn" data-tooltip="Discord Server" onclick="window.open('https://discord.gg/invite/zhidden', '_blank')">
+        <img src="../assets/imgs/discord.jpg" onerror="this.parentElement.style.display='none'">
+      </div>
+      <div class="social-btn" data-tooltip="Cashapp" onclick="window.open('https://cash.app/$Jayway2saucyy', '_blank')" >
+        <img src="../assets/imgs/cashapp.png" onerror="this.parentElement.style.display='none'">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
