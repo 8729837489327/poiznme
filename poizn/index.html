@@ -1,58 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    
   <title>poizn.me</title>
   <link rel="icon" type="image/png" href="/assets/logos/website icon.png">
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css">
+    
+  <script src="config.js"></script>
+  <script defer src="script.js"></script>
 </head>
+
 <body>
-
-  <!-- Click overlay -->
-  <div class="click-overlay" id="clickOverlay">[ Click ]</div>
-
-  <!-- Background video -->
-  <video id="background" playsinline loop muted class="background" disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback">
-    <source src="" type="video/mp4">
-  </video>
-
+  <div id="clickOverlay" class="click-overlay"></div>
+  <video id="background" class="background" playsinline loop muted disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback"></video>
+  
+  <audio id="background-music" loop></audio>
+  
   <div id="bgTint"></div>
   <div id="liminalFog"></div>
   <div id="vignette"></div>
-
-  <!-- Background audio -->
-  <audio id="background-music" loop>
-    <source src="" type="audio/mpeg">
-  </audio>
-
-  <!-- Mute button -->
+  
   <button id="mute-btn" class="mute-btn">♫</button>
-
-  <!-- Linktree container -->
+  
   <div class="container" id="container">
-
-    <div class="profile">
-      <img src="" onerror="this.parentElement.style.display='none'">
-    </div>
-
-    <div class="username">poizn</div>
-
     <div class="banner">
-      <img src="" onerror="this.parentElement.style.display='none'">
+      <img id="bannerImage">
     </div>
-
-    <div class="socials">
-      <div class="social-btn" data-tooltip="Discord Server" onclick="window.open('https://discord.gg/invite/HBHNsmSaKk', '_blank')">
-        <img src="../assets/imgs/black_discord.png" onerror="this.parentElement.style.display='none'">
-      </div>
-      <div class="social-btn" data-tooltip="Cashapp" onclick="window.open('https://cash.app/$Jayway2saucyy', '_blank')" >
-        <img src="../assets/imgs/black_cashapp.png" onerror="this.parentElement.style.display='none'">
-      </div>
+    
+    <div class="profile">
+      <img id="profileImage">
     </div>
-
+    
+    <div id="username" class="username"></div>
+    
+    <div id="socials" class="socials"></div>
+  
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
